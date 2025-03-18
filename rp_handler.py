@@ -1,5 +1,9 @@
 import runpod
 import time
+import requests
+import base64
+import io
+from PIL import Image
 
 def handler(event):
     input = event['input']
