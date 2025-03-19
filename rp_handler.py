@@ -52,7 +52,7 @@ def chat():
 
     print("Chatbot is ready! Type 'bye' to end the conversation.")
     while True:
-        user_input = input("You: ")
+        user_input = input = event['input']
         
         # Exit the chat if user types 'bye'
         if user_input.lower().strip() == "bye":
