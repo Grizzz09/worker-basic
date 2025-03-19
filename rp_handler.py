@@ -5,7 +5,7 @@ import os
 import string
 
 # Load the JSON file with responses
-def load_responses(filename="responses.json"):
+def load_responses(filename="test_input.json"):
     try:
         with open(filename, 'r') as file:
             responses = json.load(file)
@@ -27,7 +27,8 @@ def generate_random_image():
     draw = ImageDraw.Draw(image)
     font = ImageFont.load_default()
     text = ''.join(random.choices(string.ascii_uppercase + string.digits, k=6))  # Random text for the image
-    text_width, text_height = draw.textsize(text, font=font)
+    text_width = draw.textlength(text, font=font)
+    text_height = draw.textlength(text, font=font)
     position = ((width - text_width) // 2, (height - text_height) // 2)
     draw.text(position, text, fill=(255, 255, 255), font=font)
 
@@ -51,7 +52,7 @@ def chat():
 
     print("Chatbot is ready! Type 'bye' to end the conversation.")
     while True:
-        user_input = "You: create a image"
+        user_input = input("You: ")
         
         # Exit the chat if user types 'bye'
         if user_input.lower().strip() == "bye":
